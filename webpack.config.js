@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -5,7 +7,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 module.exports = (env) => {
   return {
     entry: '/src/index.js',
-    mode: 'development',
+    mode: env.dev === true ? 'development' : 'production',
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist')

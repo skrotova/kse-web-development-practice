@@ -1,5 +1,5 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
 const App = () => {
   return (
@@ -9,6 +9,6 @@ const App = () => {
   )
 }
 
-const root = ReactDOM.createRoot(document.getElementById("app"))
+const root = ReactDOM.createRoot(document.getElementById("app"));
 
 root.render(<App />);
