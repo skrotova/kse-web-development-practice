@@ -1,12 +1,16 @@
-import { fn } from '@storybook/test'
+import React from 'react'
+import { action } from '@storybook/addon-actions'
 import { LogIn } from '../Components/LogIn/login'
 
 export default {
   title: 'Example/LogIn',
-  component: LogIn,
-  tags: ['autodocs'],
-  args: { onClick: fn() }
+  component: LogIn
 }
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Component = {}
+export const Default = () => <LogIn />
+
+export const LoggedIn = () => (
+  <LogIn user={{ name: 'Lana' }} onLogin={action('onLogin')} onSignUp={action('onSignUp')} />
+)
+
+export const LoggedOut = () => <LogIn onLogin={action('onLogin')} onSignUp={action('onSignUp')} />

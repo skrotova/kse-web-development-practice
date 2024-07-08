@@ -1,14 +1,67 @@
-.login {
-  display: inline-flex;
-  color: #ccc;
-  font-size: 1rem;
-  padding: 1rem;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  align-items: center;
+/* File: src/Components/LogIn/login.module.css */
+.login-form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.login:hover {
-  color: #fff;
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.login-form .storybook-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .login-form {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .login-form input {
+    font-size: 15px;
+    padding: 6px;
+  }
+
+  .login-form .storybook-button {
+    font-size: 15px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 10px;
+  }
+
+  .login-form input {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .login-form .storybook-button {
+    font-size: 12px;
+    padding: 6px;
+  }
 }

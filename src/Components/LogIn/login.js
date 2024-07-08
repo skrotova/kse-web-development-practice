@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button } from '../Button/Button'
+import './login.module.css'
 
-import styles from './login.module.css'
-import PropTypes from 'prop-types'
+const LogIn = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-export const LogIn = ({ isLogged }) => {
+  const handleLogin = (e) => {
+    e.preventDefault()
+    console.log(`Logging in with username: ${username} and password: ${password}`)
+  }
+
   return (
-    <div className={styles.login}>
-      <span>{isLogged ? 'Log In' : 'Log Out'}</span>
-    </div>
+    <form className="login-form" onSubmit={handleLogin}>
+      <label>
+        Username:
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
+      <Button type="submit" primary label="Login" />
+    </form>
   )
 }
 
-LogIn.propTypes = {
-  isLogged: PropTypes.bool.isRequired
-}
+export default LogIn
