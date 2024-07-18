@@ -1,16 +1,21 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { LogIn } from '../Components/LogIn/login'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Login from '../Components/Login/Login'
 
 export default {
-  title: 'Example/LogIn',
-  component: LogIn
+  title: 'Components/Login',
+  component: Login
 }
 
-export const Default = () => <LogIn />
-
-export const LoggedIn = () => (
-  <LogIn user={{ name: 'Lana' }} onLogin={action('onLogin')} onSignUp={action('onSignUp')} />
+const Template = (args) => (
+  <Router>
+    <div
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}
+    >
+      <Login {...args} />
+    </div>
+  </Router>
 )
 
-export const LoggedOut = () => <LogIn onLogin={action('onLogin')} onSignUp={action('onSignUp')} />
+export const Default = Template.bind({})
+Default.args = {}
