@@ -1,0 +1,26 @@
+.subject-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subject-list li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.subject-list li:hover {
+  background-color: #f1f1f1;
+}
+
+.subject-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.subject-link:hover {
+  text-decoration: underline;
+}
