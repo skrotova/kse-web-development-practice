@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './OptionsList.css';
+import styles from './OptionsList.css';
 import { Link } from 'react-router-dom';
 
 const OptionsList = ({ options }) => {
   return (
-    <ul className="options-list">
+    <ul className={styles.optionsList}>
       {options.map((option) => (
-        <li key={option.id}>
-          <Link to={`/materials/${option.id}`} className="option-link">
+        <li key={option.id} className={styles.optionItem}>
+          <Link to={`/materials/${option.id}`} className={styles.optionLink}>
             {option.name}
           </Link>
         </li>

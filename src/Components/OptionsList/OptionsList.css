@@ -24,3 +24,17 @@
 .option-link:hover {
   text-decoration: underline;
 }
+
+.addButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #0056b3;
+}
