@@ -1,13 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-// import Login from './Components/Login/Login'
-// import Login from './Components/Login/Login.jsx'
-import styles from './Components/Login/Login.css'
+import Login from './Components/Login/Login'
 import SubjectList from './Components/SubjectList/SubjectList'
+import OptionsList from './Components/OptionsList/OptionsList'
+import AddMaterialPage from './Components/AddMaterialPage/AddMaterialPage'
 
 const App = () => {
   console.log('APP rendering')
+  const subjects = [
+    {
+      id: 1,
+      name: 'Subject1'
+    },
+    {
+      id: 2,
+      name: 'Subject2'
+    },
+    {
+      id: 3,
+      name: 'Subject3'
+    },
+    {
+      id: 4,
+      name: 'Subject4'
+    }
+  ]
   return (
     <BrowserRouter>
       {
@@ -26,33 +44,45 @@ const App = () => {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/login" Component={Login} />
-        <Route path="/subjects" Component={SubjectList} />
-        {/* <Route path="/options-list" Component={OptionsList} /> */}
+        <Route path="/subjects" Component={() => <SubjectList subjects={subjects} />} />
+        <Route path="/subjects/:id" Component={OptionsList} />
+        <Route path="/materials/:id" Component={Mateiral} />
+        <Route path="/materials/add" Component={AddMaterial} />
       </Routes>
     </BrowserRouter>
   )
 }
 
-const Login = () => {
+export const Home = () => {
+  console.log('Home rendering')
+  return <p>Home</p>
+}
+
+export const Mateiral = () => {
+  console.log('Rendering material?')
   return (
-    <div className={styles.loginContainer}>
-      <h2>Login</h2>
-      <form>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" />
-
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" />
-
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      <ul>
+        <li>material 1</li>
+        <li>material 2</li>
+      </ul>
+    </>
   )
 }
 
-const Home = () => {
-  console.log('Home rendering')
-  return <p>Home</p>
+export const AddMaterial = () => {
+  console.log('Rendering add material?')
+
+  const submitHandler = (formdata) => {
+    console.log(formdata)
+    alert('Thanks for adding material')
+    return
+  }
+  return (
+    <>
+      <AddMaterialPage onAddMaterial={submitHandler}></AddMaterialPage>
+    </>
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('app'))
